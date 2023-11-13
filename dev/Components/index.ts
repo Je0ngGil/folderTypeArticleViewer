@@ -1,1 +1,1 @@
-console.log('test');
+import './MenuBar/menubar-main';
