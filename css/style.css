@@ -3,14 +3,14 @@
 
 /*===== VARIABLES CSS =====*/
 :root {
-  --nav-width: 92px;
+  --sidebar-width: 272px;
 
   /*==== Colors =====*/
-  --first-color: #0c5df4;
-  --second-color: #24ade3;
-  --bg-color: #12192c;
-  --sub-color: #b6cefc;
-  --white-color: #fff;
+  --first-color: #000000;
+  --second-color: #1e2a27;
+  --third-color: #9c9c9e;
+  --fourth-color: #cbccc2;
+  --fifth-color: #f4edf0;
 
   /*===== Fuente y tiporafia =====*/
   --body-font: 'Poppins', sans-serif;
@@ -30,11 +30,14 @@
 }
 body {
   position: relative;
-  margin: 0;
-  padding: 2rem 0 0 6.75rem;
+  margin: 0 0 0 var(--sidebar-width);
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   transition: 0.5s;
+
+  height: 100vh;
+
+  border: 2px solid blue;
 }
 h1 {
   margin: 0;
