@@ -6,11 +6,11 @@
   --sidebar-width: 272px;
 
   /*==== Colors =====*/
-  --first-color: #0c5df4;
-  --second-color: #24ade3;
-  --bg-color: #12192c;
-  --sub-color: #b6cefc;
-  --white-color: #fff;
+  --first-color: #000000;
+  --second-color: #1e2a27;
+  --third-color: #9c9c9e;
+  --fourth-color: #cbccc2;
+  --fifth-color: #f4edf0;
 
   /*===== Fuente y tiporafia =====*/
   --body-font: 'Poppins', sans-serif;
