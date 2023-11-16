@@ -38,7 +38,13 @@ body {
   height: 100vh;
 
   border: 2px solid blue;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
+
 h1 {
   margin: 0;
 }
