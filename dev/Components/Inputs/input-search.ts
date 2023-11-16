@@ -17,11 +17,13 @@ export class InputSearch extends LitElement {
       height: 80%;
       width: 10%;
       flex: 8 1;
+      margin: 2px;
       font-size: 1rem;
     }
     #searchButton {
       flex: 2 0;
       aspect-ratio: 1;
+      margin: 2px;
       font-size: 2vw;
     }
   `;

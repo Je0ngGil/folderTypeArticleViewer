@@ -9,8 +9,6 @@ export class MenuBarHeader extends LitElement {
   static override styles = css`
     :host {
       border: 2px dashed #f0ea3f;
-
-      /* height: 200px; */
     }
 
     #iconContainer {
@@ -26,7 +24,7 @@ export class MenuBarHeader extends LitElement {
     }
 
     #inputContainer {
-      height: 50px;
+      height: 70px;
     }
   `;
 
