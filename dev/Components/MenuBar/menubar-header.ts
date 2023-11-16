@@ -26,7 +26,6 @@ export class MenuBarHeader extends LitElement {
     }
 
     #inputContainer {
-      border: 2px dashed #7df03f;
       height: 50px;
     }
   `;
