@@ -19,7 +19,7 @@ export class MenuBarHeader extends LitElement {
       justify-content: space-around;
     }
     .iconItem {
-      width: 25%;
+      width: 20%;
       aspect-ratio: 1;
     }
 

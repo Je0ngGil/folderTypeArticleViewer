@@ -17,13 +17,21 @@ export class InputSearch extends LitElement {
       height: 80%;
       width: 10%;
       flex: 8 1;
-      margin: 2px;
+      margin: 19px;
+
+      color: var(--fifth-color);
       font-size: 1rem;
+
+      border: 0;
+      border-radius: 15px;
+      outline: none;
+      padding-left: 10px;
+      background-color: var(--third-color);
     }
     #searchButton {
       flex: 2 0;
       aspect-ratio: 1;
-      margin: 2px;
+      margin: 19px;
       font-size: 2vw;
     }
   `;
@@ -49,7 +57,14 @@ export class InputSearch extends LitElement {
 
   override render() {
     return html`
-      <input type="text" id="searchInput" placeholder="검색" @keyup=${this.activeEnter} ${ref(this.inputRef)} />
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="검색하기"
+        @keyup=${this.activeEnter}
+        ${ref(this.inputRef)}
+        autocomplete="off"
+      />
       <button-icon id="searchButton" @click=${this.activeButton}></button-icon>
     `;
   }
