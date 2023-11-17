@@ -1,8 +1,8 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
-@customElement('icon-button')
-export class IconButton extends LitElement {
+@customElement('button-icon')
+export class ButtonIcon extends LitElement {
   static override styles = css`
     :host {
       position: relative;
@@ -10,6 +10,7 @@ export class IconButton extends LitElement {
 
       color: var(--fifth-color);
       background-color: var(--first-color);
+      border: 1px solid var(--first-color);
 
       border-radius: 25%;
 
@@ -46,6 +47,6 @@ export class IconButton extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'icon-button': IconButton;
+    'button-icon': ButtonIcon;
   }
 }
