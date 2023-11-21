@@ -22,15 +22,12 @@ class MenuBarBody extends LitElement {
       flex-direction: column;
     }
   `;
-  constructor() {
-    super();
-  }
 
   override render() {
     return html`
       <div id="folderContainer">
         <menubar-folder>
-          <menubar-folder> <menubar-folder></menubar-folder><menubar-content></menubar-content> </menubar-folder>
+          <menubar-folder><menubar-folder></menubar-folder><menubar-content></menubar-content> </menubar-folder>
           <menubar-folder><menubar-content></menubar-content></menubar-folder>
           <menubar-folder></menubar-folder>
         </menubar-folder>

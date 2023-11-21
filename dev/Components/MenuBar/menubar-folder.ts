@@ -56,10 +56,6 @@ export class MenubarFolder extends LitElement {
   @property() folderName: string = '폴더';
   @state() isOpend: boolean = false;
 
-  test() {
-    console.log('쿼리셀렉터로도 메서드를 실행가능? 가능하다면 프로퍼티로 컨텐츠와 폴더를 주입받지 않아도 된다.');
-  }
-
   activeFolder() {
     this.isOpend = !this.isOpend;
     this.titleRef.value?.classList.toggle('active');
@@ -86,8 +82,6 @@ declare global {
 }
 
 /*
-1. 메뉴바-폴더는 중첩구조를 가진다
-2. close에는 중첩구조를 숨긴다
-3. open에는 중첩구조를 서랍 열듯 나열한다
-
+설정해야할 프로퍼티
+아이콘, 폴더 이름
  */
