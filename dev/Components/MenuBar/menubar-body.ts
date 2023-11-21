@@ -3,6 +3,8 @@ import { customElement } from 'lit/decorators.js';
 
 import '../Buttons/button-folder';
 import '../Buttons/button-content';
+import './menubar-folder';
+import './menubar-content';
 
 @customElement('menubar-body')
 class MenuBarBody extends LitElement {
@@ -19,27 +21,19 @@ class MenuBarBody extends LitElement {
       display: flex;
       flex-direction: column;
     }
-    #contentContainer {
-      display: flex;
-      flex-direction: column;
-    }
   `;
-  constructor() {
-    super();
-  }
 
   override render() {
     return html`
-      <div id="title">현재 페이지</div>
       <div id="folderContainer">
-        <button-folder></button-folder>
-        <button-folder></button-folder>
-        <button-folder></button-folder>
-      </div>
-      <div id="contentContainer">
-        <button-content></button-content>
-        <button-content></button-content>
-        <button-content></button-content>
+        <menubar-folder>
+          <menubar-folder><menubar-folder></menubar-folder><menubar-content></menubar-content> </menubar-folder>
+          <menubar-folder><menubar-content></menubar-content></menubar-folder>
+          <menubar-folder></menubar-folder>
+        </menubar-folder>
+        <menubar-folder>
+          <menubar-content></menubar-content>
+        </menubar-folder>
       </div>
     `;
   }

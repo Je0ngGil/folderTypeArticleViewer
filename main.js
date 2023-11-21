@@ -1,0 +1,1 @@
+(()=>{"use strict";const t=document.body;fetch("http://localhost:3000/public/CodingTest/Programmers/%EC%9A%94%EA%B2%A9_%EC%8B%9C%EC%8A%A4%ED%85%9C.md").then((async e=>{const n=await e.text(),c=document.createElement("div");c.innerText=n,t.appendChild(c)}))})();

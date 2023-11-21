@@ -35,7 +35,7 @@ body {
   font-size: var(--normal-font-size);
   transition: 0.5s;
 
-  height: 100vh;
+  max-height: max-content;
 
   border: 2px solid blue;
 

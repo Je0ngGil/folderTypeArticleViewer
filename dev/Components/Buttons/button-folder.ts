@@ -10,7 +10,7 @@ export class ButtonFolder extends LitElement {
   `;
 
   override render() {
-    return html`나는 폴더`;
+    return html`<ion-icon name="folder-outline"></ion-icon>`;
   }
 }
 

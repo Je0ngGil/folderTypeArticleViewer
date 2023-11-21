@@ -6,8 +6,7 @@ import './menubar-body';
 
 @customElement('menubar-main')
 class MenuBar extends LitElement {
-  @property()
-  button = 'BTN';
+  @property() button = 'BTN';
 
   static override styles = css`
     :host {
@@ -23,10 +22,6 @@ class MenuBar extends LitElement {
       border: 2px solid red;
     }
   `;
-
-  constructor() {
-    super();
-  }
 
   override render() {
     return html`
