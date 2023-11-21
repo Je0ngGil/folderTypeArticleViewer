@@ -1,21 +1,21 @@
 import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
-@customElement('button-folder')
-export class ButtonFolder extends LitElement {
+@customElement('menubar-content')
+export class MenubarContent extends LitElement {
   static override styles = css`
-    :host {
-      border: 1px solid red;
+    #content {
+      border: 1px dashed black;
     }
   `;
 
   override render() {
-    return html`<ion-icon name="folder-outline"></ion-icon>`;
+    return html`<div id="content">나는 컨텐츠</div>`;
   }
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    'button-folder': ButtonFolder;
+    'menubar-content': MenubarContent;
   }
 }
