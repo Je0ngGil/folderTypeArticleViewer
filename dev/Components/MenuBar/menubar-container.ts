@@ -4,8 +4,8 @@ import { customElement, property } from 'lit/decorators.js';
 import './menubar-header';
 import './menubar-body';
 
-@customElement('menubar-main')
-class MenuBar extends LitElement {
+@customElement('menubar-container')
+class MenuBarContainer extends LitElement {
   @property() button = 'BTN';
 
   static override styles = css`
@@ -19,10 +19,9 @@ class MenuBar extends LitElement {
       display: flex;
       flex-direction: column;
 
-      border: 2px solid red;
+      border: 1px solid black;
     }
   `;
-
   override render() {
     return html`
       <menubar-header></menubar-header>
@@ -33,6 +32,6 @@ class MenuBar extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'menubar-main': MenuBar;
+    'menubar-container': MenuBarContainer;
   }
 }
