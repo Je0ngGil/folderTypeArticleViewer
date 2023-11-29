@@ -10,8 +10,6 @@ import './menubar-content';
 class MenuBarBody extends LitElement {
   static override styles = css`
     :host {
-      border: 2px dashed #f0863f;
-
       height: 100%;
 
       display: flex;

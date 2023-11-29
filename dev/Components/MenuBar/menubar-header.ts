@@ -7,10 +7,6 @@ import '../Inputs/input-search';
 @customElement('menubar-header')
 export class MenuBarHeader extends LitElement {
   static override styles = css`
-    :host {
-      border: 2px dashed #f0ea3f;
-    }
-
     #iconContainer {
       display: flex;
       align-items: center;

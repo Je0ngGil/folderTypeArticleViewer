@@ -11,13 +11,16 @@ const FOLDERICON = {
 export class MenubarFolder extends LitElement {
   static override styles = css`
     #title {
-      border: 1px dashed black;
+      border: 1px solid black;
 
       display: grid;
+      align-items: center;
+
       grid-template-columns: min-content max-content;
       column-gap: 0.7rem;
 
       font-size: var(--normal-font-size);
+      height: var(--big-font-size);
     }
     #title.active {
       color: var(--fifth-color);

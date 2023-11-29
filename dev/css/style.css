@@ -35,9 +35,10 @@ body {
   font-size: var(--normal-font-size);
   transition: 0.5s;
 
+  min-height: 100vh;
   max-height: max-content;
 
-  border: 2px solid blue;
+  border: 1px solid blue;
 
   -webkit-user-select: none;
   -moz-user-select: none;

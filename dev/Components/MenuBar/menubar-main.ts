@@ -19,10 +19,9 @@ class MenuBar extends LitElement {
       display: flex;
       flex-direction: column;
 
-      border: 2px solid red;
+      border: 1px solid black;
     }
   `;
-
   override render() {
     return html`
       <menubar-header></menubar-header>

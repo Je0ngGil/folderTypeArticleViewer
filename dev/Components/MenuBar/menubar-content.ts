@@ -5,8 +5,6 @@ import { customElement } from 'lit/decorators.js';
 export class MenubarContent extends LitElement {
   static override styles = css`
     #content {
-      border: 1px dashed black;
-
       display: grid;
       grid-template-columns: min-content max-content;
       column-gap: 0.7rem;
