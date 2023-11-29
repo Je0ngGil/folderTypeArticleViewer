@@ -1,2 +1,2 @@
-import './MenuBar/menubar-main';
-import './Article/article-main';
+import './MenuBar/menubar-container';
+import './Article/article-container';

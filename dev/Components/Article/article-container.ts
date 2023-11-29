@@ -1,8 +1,8 @@
 import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
-@customElement('article-main')
-export class ArticleMain extends LitElement {
+@customElement('article-container')
+export class ArticleContainer extends LitElement {
   static override styles = css`
     :host {
       border: 1px solid red;
@@ -18,6 +18,6 @@ export class ArticleMain extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'article-main': ArticleMain;
+    'article-container': ArticleContainer;
   }
 }
