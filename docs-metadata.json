@@ -1,0 +1,44 @@
+{
+  "name": "docs",
+  "type": "directory",
+  "children": [
+    {
+      "name": "test.md",
+      "type": "file"
+    },
+    {
+      "name": "test2.md",
+      "type": "file"
+    },
+    {
+      "name": "테스트폴더",
+      "type": "directory",
+      "children": [
+        {
+          "name": "테스트.md",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "테스트폴더2",
+      "type": "directory",
+      "children": [
+        {
+          "name": "테스트2.md",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "테스트폴더3",
+      "type": "directory",
+      "children": [
+        {
+          "name": "테스트3.md",
+          "type": "file"
+        }
+      ]
+    }
+  ]
+}
