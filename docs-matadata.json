@@ -7,6 +7,10 @@
       "type": "file"
     },
     {
+      "name": "test2.md",
+      "type": "file"
+    },
+    {
       "name": "테스트폴더",
       "type": "directory",
       "children": [
