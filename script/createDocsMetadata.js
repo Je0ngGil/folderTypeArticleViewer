@@ -40,4 +40,4 @@ function readDirectory(directoryPath) {
 const currentDirectory = path.join(__dirname + '/../' + '/docs');
 const metadata = readDirectory(currentDirectory);
 
-fs.writeFileSync('./docs-matadata.json', JSON.stringify(metadata, null, 2));
+fs.writeFileSync('./docs-metadata.json', JSON.stringify(metadata, null, 2));

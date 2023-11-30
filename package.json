@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "createMetadata": "node script/createDocsMetadata.js",
+    "createDocsMetadata": "node script/createDocsMetadata.js",
     "build": "webpack --mode production",
     "start:dev": "webpack serve --mode development"
   },
