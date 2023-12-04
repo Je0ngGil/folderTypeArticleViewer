@@ -1,8 +1,8 @@
 import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
-@customElement('menubar-content')
-export class MenubarContent extends LitElement {
+@customElement('menubar-article')
+export class MenubarArticle extends LitElement {
   static override styles = css`
     #content {
       display: grid;
@@ -26,7 +26,7 @@ export class MenubarContent extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'menubar-content': MenubarContent;
+    'menubar-article': MenubarArticle;
   }
 }
 

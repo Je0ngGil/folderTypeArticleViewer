@@ -2,10 +2,8 @@ import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { DocsMetaDataTree } from '../../Models/docsDataTree';
 
-import '../Buttons/button-folder';
-import '../Buttons/button-content';
-import './menubar-folder';
-import './menubar-content';
+import './menubar-directory';
+import './menubar-article';
 
 @customElement('menubar-body')
 class MenuBarBody extends LitElement {
@@ -16,7 +14,7 @@ class MenuBarBody extends LitElement {
       display: flex;
       flex-direction: column;
     }
-    #folderContainer {
+    #directoryContainer {
       display: flex;
       flex-direction: column;
     }
@@ -27,18 +25,7 @@ class MenuBarBody extends LitElement {
 
   override render() {
     console.log(this.docsMetaDataTree);
-    return html`
-      <div id="folderContainer">
-        <menubar-folder>
-          <menubar-folder><menubar-folder></menubar-folder><menubar-content></menubar-content> </menubar-folder>
-          <menubar-folder><menubar-content></menubar-content></menubar-folder>
-          <menubar-folder></menubar-folder>
-        </menubar-folder>
-        <menubar-folder>
-          <menubar-content></menubar-content>
-        </menubar-folder>
-      </div>
-    `;
+    return html` <div id="directoryContainer"></div> `;
   }
 }
 

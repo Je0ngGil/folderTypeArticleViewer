@@ -7,8 +7,8 @@ const FOLDERICON = {
   CLOSED: 'folder-outline',
 };
 
-@customElement('menubar-folder')
-export class MenubarFolder extends LitElement {
+@customElement('menubar-directory')
+export class MenubarDirectory extends LitElement {
   static override styles = css`
     #title {
       border: 1px solid black;
@@ -80,7 +80,7 @@ export class MenubarFolder extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'menubar-folder': MenubarFolder;
+    'menubar-directory': MenubarDirectory;
   }
 }
 
