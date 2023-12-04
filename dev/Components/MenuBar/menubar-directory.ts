@@ -32,7 +32,7 @@ export class MenubarDirectory extends LitElement {
       cursor: pointer;
     }
 
-    #innerFolder {
+    #innerDirectory {
       visibility: hidden;
 
       opacity: 0;
@@ -40,7 +40,7 @@ export class MenubarDirectory extends LitElement {
       max-height: 0;
       transition: max-height 0.2s ease;
     }
-    #innerFolder.active {
+    #innerDirectory.active {
       visibility: visible;
       opacity: 1;
 
@@ -54,24 +54,24 @@ export class MenubarDirectory extends LitElement {
   `;
 
   titleRef: Ref<HTMLDivElement> = createRef();
-  innerFolerRef: Ref<HTMLDivElement> = createRef();
+  innerDirectoryRef: Ref<HTMLDivElement> = createRef();
 
-  @property() folderName: string = '폴더';
+  @property() Name: string = '폴더';
   @state() isOpend: boolean = false;
 
   activeFolder() {
     this.isOpend = !this.isOpend;
     this.titleRef.value?.classList.toggle('active');
-    this.innerFolerRef.value?.classList.toggle('active');
+    this.innerDirectoryRef.value?.classList.toggle('active');
   }
 
   override render() {
     return html`
       <div id="title" @click=${this.activeFolder} ${ref(this.titleRef)}>
         <ion-icon name=${this.isOpend ? FOLDERICON.OPENED : FOLDERICON.CLOSED}></ion-icon>
-        <div>${this.folderName}</div>
+        <div>${this.Name}</div>
       </div>
-      <div id="innerFolder" ${ref(this.innerFolerRef)}>
+      <div id="innerDirectory" ${ref(this.innerDirectoryRef)}>
         <slot>...</slot>
       </div>
     `;
