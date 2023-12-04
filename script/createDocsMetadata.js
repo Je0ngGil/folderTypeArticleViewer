@@ -29,7 +29,7 @@ function readDirectory(directoryPath) {
     } else {
       metadata.children.push({
         name: entry,
-        type: 'file',
+        type: 'article',
       });
     }
   });

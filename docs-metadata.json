@@ -4,11 +4,11 @@
   "children": [
     {
       "name": "test.md",
-      "type": "file"
+      "type": "article"
     },
     {
       "name": "test2.md",
-      "type": "file"
+      "type": "article"
     },
     {
       "name": "테스트폴더",
@@ -16,7 +16,7 @@
       "children": [
         {
           "name": "테스트.md",
-          "type": "file"
+          "type": "article"
         }
       ]
     },
@@ -26,7 +26,7 @@
       "children": [
         {
           "name": "테스트2.md",
-          "type": "file"
+          "type": "article"
         }
       ]
     },
@@ -36,7 +36,7 @@
       "children": [
         {
           "name": "테스트3.md",
-          "type": "file"
+          "type": "article"
         }
       ]
     }
