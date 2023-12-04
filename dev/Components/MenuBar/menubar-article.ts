@@ -4,12 +4,12 @@ import { customElement } from 'lit/decorators.js';
 @customElement('menubar-article')
 export class MenubarArticle extends LitElement {
   static override styles = css`
-    #content {
+    #article {
       display: grid;
       grid-template-columns: min-content max-content;
       column-gap: 0.7rem;
     }
-    #content:hover {
+    #article:hover {
       color: var(--fifth-color);
       background-color: var(--third-color);
       cursor: pointer;
@@ -17,7 +17,7 @@ export class MenubarArticle extends LitElement {
   `;
 
   override render() {
-    return html`<div id="content">
+    return html`<div id="article">
       <ion-icon name="document-outline"></ion-icon>
       <div>컨텐츠 이름</div>
     </div>`;
