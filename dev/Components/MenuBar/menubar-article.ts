@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 
 @customElement('menubar-article')
 export class MenubarArticle extends LitElement {
@@ -16,10 +16,13 @@ export class MenubarArticle extends LitElement {
     }
   `;
 
+  @property()
+  name?: string;
+
   override render() {
     return html`<div id="article">
       <ion-icon name="document-outline"></ion-icon>
-      <div>컨텐츠 이름</div>
+      <div>${this.name}</div>
     </div>`;
   }
 }

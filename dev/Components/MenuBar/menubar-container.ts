@@ -2,8 +2,6 @@ import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { Task } from '@lit/task';
 
-import { DocsMetaDataTree } from '../../Models/docsDataTree';
-
 import './menubar-header';
 import './menubar-body';
 
@@ -28,9 +26,9 @@ class MenuBarContainer extends LitElement {
     task: async () => {
       await new Promise((res) => setTimeout(res, 500)); // 임사 로딩
       const response = await fetch('/docs-metadata.json');
-      const docsDataJson = await response.json();
-      const docsMetaDataTree = new DocsMetaDataTree(docsDataJson);
-      return docsMetaDataTree;
+      const docsMetaDataJSON = await response.json();
+
+      return docsMetaDataJSON;
     },
     autoRun: true,
     args: () => [],
@@ -40,7 +38,7 @@ class MenuBarContainer extends LitElement {
       ${this._getDataTask.render({
         initial: () => html`<loding-spinner />`,
         pending: () => html`<loding-spinner />`,
-        complete: (docsMetaDataTree) => html`<menubar-body .docsMetaDataTree=${docsMetaDataTree}></menubar-body>`,
+        complete: (docsMetaDataJSON) => html`<menubar-body .docsMetaDataJSON=${docsMetaDataJSON}></menubar-body>`,
         error: (error) => html`<p>Oops, something went wrong: ${error}</p>`,
       })}
     `;

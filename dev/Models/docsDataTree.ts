@@ -1,24 +1,11 @@
 type Item = 'directory' | 'article';
 
-type DocsMetadata = {
+export type Directory = {
   name: string;
-  type: Item;
-  children?: DocsMetadata[];
+  type: 'directory';
+  children: (Directory | Article)[];
 };
-
-export class DocsMetaDataTree {
+export type Article = {
   name: string;
-  type: Item;
-  children?: DocsMetaDataTree[];
-  constructor({ name, type, children }: DocsMetadata) {
-    this.name = name;
-    this.type = type;
-    if (children) {
-      this.children = [];
-      children.forEach(this.registChild.bind(this));
-    }
-  }
-  registChild(child: DocsMetadata) {
-    if (this.children) this.children.push(new DocsMetaDataTree(child));
-  }
-}
+  type: 'article';
+};
