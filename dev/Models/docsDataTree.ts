@@ -6,51 +6,6 @@ type DocsMetadata = {
   children?: DocsMetadata[];
 };
 
-const test: DocsMetadata = {
-  name: 'docs',
-  type: 'directory',
-  children: [
-    {
-      name: 'test.md',
-      type: 'article',
-    },
-    {
-      name: 'test2.md',
-      type: 'article',
-    },
-    {
-      name: '테스트폴더',
-      type: 'directory',
-      children: [
-        {
-          name: '테스트.md',
-          type: 'article',
-        },
-      ],
-    },
-    {
-      name: '테스트폴더2',
-      type: 'directory',
-      children: [
-        {
-          name: '테스트2.md',
-          type: 'article',
-        },
-      ],
-    },
-    {
-      name: '테스트폴더3',
-      type: 'directory',
-      children: [
-        {
-          name: '테스트3.md',
-          type: 'article',
-        },
-      ],
-    },
-  ],
-};
-
 export class DocsMetaDataTree {
   name: string;
   type: Item;

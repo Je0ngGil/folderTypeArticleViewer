@@ -1,13 +1,14 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { Task } from '@lit/task';
+
+import { DocsMetaDataTree } from '../../Models/docsDataTree';
 
 import './menubar-header';
 import './menubar-body';
 
 @customElement('menubar-container')
 class MenuBarContainer extends LitElement {
-  @property() button = 'BTN';
-
   static override styles = css`
     :host {
       position: fixed;
@@ -22,10 +23,26 @@ class MenuBarContainer extends LitElement {
       border: 1px solid black;
     }
   `;
+
+  _getDataTask = new Task(this, {
+    task: async () => {
+      await new Promise((res) => setTimeout(res, 500)); // 임사 로딩
+      const response = await fetch('/docs-metadata.json');
+      const docsDataJson = await response.json();
+      const docsMetaDataTree = new DocsMetaDataTree(docsDataJson);
+      return docsMetaDataTree;
+    },
+    autoRun: true,
+    args: () => [],
+  });
   override render() {
     return html`
-      <menubar-header></menubar-header>
-      <menubar-body></menubar-body>
+      ${this._getDataTask.render({
+        initial: () => html`<loding-spinner />`,
+        pending: () => html`<loding-spinner />`,
+        complete: (docsMetaDataTree) => html`<menubar-body .docsMetaDataTree=${docsMetaDataTree}></menubar-body>`,
+        error: (error) => html`<p>Oops, something went wrong: ${error}</p>`,
+      })}
     `;
   }
 }

@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
+import { DocsMetaDataTree } from '../../Models/docsDataTree';
 
 import '../Buttons/button-folder';
 import '../Buttons/button-content';
@@ -21,7 +22,11 @@ class MenuBarBody extends LitElement {
     }
   `;
 
+  @property({ attribute: false })
+  docsMetaDataTree?: DocsMetaDataTree;
+
   override render() {
+    console.log(this.docsMetaDataTree);
     return html`
       <div id="folderContainer">
         <menubar-folder>
