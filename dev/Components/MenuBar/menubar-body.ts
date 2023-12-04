@@ -26,22 +26,6 @@ class MenuBarBody extends LitElement {
   @query('#directoryContainer')
   directoryContainer!: HTMLDivElement;
 
-  // convertDocsMetaDataJSONToDOM(docsMetaDataJSON: Directory | Article, parent: HTMLElement) {
-  //   if (docsMetaDataJSON.type === 'directory') {
-  //     const dirElement = this.createDirectoryElement(docsMetaDataJSON.name);
-  //     parent.append(dirElement);
-  //     if (docsMetaDataJSON.children) {
-  //       dirElement.addToInnerDirectory(
-  //         docsMetaDataJSON.children.map((data) => this.convertDocsMetaDataJSONToDOM(data, dirElement))
-  //       );
-  //     }
-  //     return dirElement;
-  //   } else if (docsMetaDataJSON.type === 'article') {
-  //     return this.createArticleElement(docsMetaDataJSON.name);
-  //   } else {
-  //     throw Error();
-  //   }
-  // }
   convertDocsMetaDataJSONToDOM(docsMetaDataJSON: Directory | Article) {
     if (docsMetaDataJSON.type === 'directory') {
       const dirElement = this.createDirectoryElement(docsMetaDataJSON.name);
