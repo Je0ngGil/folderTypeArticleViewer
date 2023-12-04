@@ -1,10 +1,9 @@
-import { LitElement, html, css } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { LitElement, html, css, PropertyValueMap } from 'lit';
+import { customElement, property, query } from 'lit/decorators.js';
+import { Directory, Article } from '../../Models/docsDataTree';
 
-import '../Buttons/button-folder';
-import '../Buttons/button-content';
-import './menubar-folder';
-import './menubar-content';
+import './menubar-directory';
+import './menubar-article';
 
 @customElement('menubar-body')
 class MenuBarBody extends LitElement {
@@ -15,25 +14,56 @@ class MenuBarBody extends LitElement {
       display: flex;
       flex-direction: column;
     }
-    #folderContainer {
+    #directoryContainer {
       display: flex;
       flex-direction: column;
     }
   `;
 
+  @property({ attribute: false })
+  docsMetaDataJSON!: Directory | Article;
+
+  @query('#directoryContainer')
+  directoryContainer!: HTMLDivElement;
+
+  // convertDocsMetaDataJSONToDOM(docsMetaDataJSON: Directory | Article, parent: HTMLElement) {
+  //   if (docsMetaDataJSON.type === 'directory') {
+  //     const dirElement = this.createDirectoryElement(docsMetaDataJSON.name);
+  //     parent.append(dirElement);
+  //     if (docsMetaDataJSON.children) {
+  //       dirElement.addToInnerDirectory(
+  //         docsMetaDataJSON.children.map((data) => this.convertDocsMetaDataJSONToDOM(data, dirElement))
+  //       );
+  //     }
+  //     return dirElement;
+  //   } else if (docsMetaDataJSON.type === 'article') {
+  //     return this.createArticleElement(docsMetaDataJSON.name);
+  //   } else {
+  //     throw Error();
+  //   }
+  // }
+  convertDocsMetaDataJSONToDOM(docsMetaDataJSON: Directory | Article) {
+    if (docsMetaDataJSON.type === 'directory') {
+      const dirElement = this.createDirectoryElement(docsMetaDataJSON.name);
+      dirElement.innerDirElements = docsMetaDataJSON.children.map(this.convertDocsMetaDataJSONToDOM.bind(this));
+      return dirElement;
+    } else {
+      const articleElement = this.createArticleElement(docsMetaDataJSON.name);
+      return articleElement;
+    }
+  }
+  createDirectoryElement(dirName: string) {
+    const menuBarDirectoryElement = document.createElement('menubar-directory');
+    menuBarDirectoryElement.setAttribute('name', dirName);
+    return menuBarDirectoryElement;
+  }
+  createArticleElement(articleName: string) {
+    const menuBarArticleElement = document.createElement('menubar-article');
+    menuBarArticleElement.setAttribute('name', articleName);
+    return menuBarArticleElement;
+  }
   override render() {
-    return html`
-      <div id="folderContainer">
-        <menubar-folder>
-          <menubar-folder><menubar-folder></menubar-folder><menubar-content></menubar-content> </menubar-folder>
-          <menubar-folder><menubar-content></menubar-content></menubar-folder>
-          <menubar-folder></menubar-folder>
-        </menubar-folder>
-        <menubar-folder>
-          <menubar-content></menubar-content>
-        </menubar-folder>
-      </div>
-    `;
+    return html` <div id="directoryContainer">${this.convertDocsMetaDataJSONToDOM(this.docsMetaDataJSON)}</div> `;
   }
 }
 
