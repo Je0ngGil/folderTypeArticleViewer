@@ -28,18 +28,21 @@ export class Directory extends Docs {
     super({ name, type: 'directory' });
     this.registDomElement();
   }
-  registChildren(children: (Directory | Article)[]) {
-    this.children = children;
-    children.forEach((doc) => doc.registParent(this));
-  }
   registDomElement() {
     const menubarDirElement = new MenubarDirectory();
     menubarDirElement.name = this.name;
     this.DirDomElement = menubarDirElement;
   }
-  getDocsDomElment() {
+  registChildren(children: (Directory | Article)[]) {
+    this.children = children;
+    children.forEach((doc) => doc.registParent(this));
+    this.appendChildDocDomElement();
+  }
+  appendChildDocDomElement() {
     const children = this.children.map((doc) => doc.getDocsDomElment());
     this.DirDomElement.append(...children);
+  }
+  getDocsDomElment() {
     return this.DirDomElement;
   }
 }
