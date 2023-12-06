@@ -1,9 +1,11 @@
 import { LitElement, html, css } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 import { Task } from '@lit/task';
 
 import './menubar-header';
 import './menubar-body';
+
+import { DocsModel } from '../../Models/docsModel';
 
 @customElement('menubar-container')
 class MenuBarContainer extends LitElement {
@@ -22,23 +24,29 @@ class MenuBarContainer extends LitElement {
     }
   `;
 
+  @state()
+  docsModel!: DocsModel;
+
   _getDataTask = new Task(this, {
     task: async () => {
       await new Promise((res) => setTimeout(res, 500)); // 임사 로딩
       const response = await fetch('/docs-metadata.json');
       const docsMetaDataJSON = await response.json();
+      this.docsModel = new DocsModel(docsMetaDataJSON);
 
-      return docsMetaDataJSON;
+      return this.docsModel.getDocsDomElment();
     },
     autoRun: true,
     args: () => [],
   });
+
   override render() {
+    setTimeout(() => {}, 3000);
     return html`
       ${this._getDataTask.render({
         initial: () => html`<loding-spinner />`,
         pending: () => html`<loding-spinner />`,
-        complete: (docsMetaDataJSON) => html`<menubar-body .docsMetaDataJSON=${docsMetaDataJSON}></menubar-body>`,
+        complete: (docsDomElement) => html`<menubar-body .docsDomElement=${docsDomElement}></menubar-body>`,
         error: (error) => html`<p>Oops, something went wrong: ${error}</p>`,
       })}
     `;
