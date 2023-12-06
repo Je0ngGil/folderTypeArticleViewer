@@ -58,7 +58,7 @@ export class MenubarDirectory extends LitElement {
   titleRef: Ref<HTMLDivElement> = createRef();
   innerDirectoryRef: Ref<HTMLDivElement> = createRef();
 
-  @property() Name: string = '폴더';
+  @property() name: string = '폴더';
   @property({ type: Array }) innerDirElements!: (MenubarArticle | MenubarDirectory)[];
   @state() isOpend: boolean = false;
 
@@ -67,17 +67,14 @@ export class MenubarDirectory extends LitElement {
     this.titleRef.value?.classList.toggle('active');
     this.innerDirectoryRef.value?.classList.toggle('active');
   }
-  override updated() {
-    this.innerDirectoryRef.value?.append(...this.innerDirElements);
-  }
   override render() {
     return html`
       <div id="title" @click=${this.activeFolder} ${ref(this.titleRef)}>
         <ion-icon name=${this.isOpend ? FOLDERICON.OPENED : FOLDERICON.CLOSED}></ion-icon>
-        <div>${this.Name}</div>
+        <div>${this.name}</div>
       </div>
       <div id="innerDirectory" ${ref(this.innerDirectoryRef)}>
-        ${this.innerDirElements.length === 0 ? html`<div>...</div>` : nothing}
+        <slot>...</slot>
       </div>
     `;
   }

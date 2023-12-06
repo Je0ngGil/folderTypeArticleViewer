@@ -41,3 +41,5 @@ const currentDirectory = path.join(__dirname + '/../' + '/docs');
 const metadata = readDirectory(currentDirectory);
 
 fs.writeFileSync('./docs-metadata.json', JSON.stringify(metadata, null, 2));
+
+//TODO: 빈폴더는 생성되지 않도록 변경하기, 게시물의 추가 정보(태그, 생성 날짜 등) https://www.npmjs.com/package/front-matter 사용

@@ -1,3 +1,6 @@
+import { MenubarDirectory } from '../Components/MenuBar/menubar-directory';
+import { MenubarArticle } from '../Components/MenuBar/menubar-article';
+
 type DocsMetaDataJSON = {
   name: string;
   type: string;
@@ -8,6 +11,7 @@ class Docs {
   name: string;
   type: string;
   parent: Docs | null = null;
+
   constructor({ name, type }: { name: string; type: string }) {
     this.name = name;
     this.type = type;
@@ -18,20 +22,41 @@ class Docs {
 }
 
 export class Directory extends Docs {
-  children!: Docs[];
-
+  children!: (Directory | Article)[];
+  DirDomElement!: MenubarDirectory;
   constructor({ name }: { name: string }) {
     super({ name, type: 'directory' });
+    this.registDomElement();
   }
-  registChildren(children: Docs[]) {
+  registChildren(children: (Directory | Article)[]) {
     this.children = children;
     children.forEach((doc) => doc.registParent(this));
+  }
+  registDomElement() {
+    const menubarDirElement = new MenubarDirectory();
+    menubarDirElement.name = this.name;
+    this.DirDomElement = menubarDirElement;
+  }
+  getDocsDomElment() {
+    const children = this.children.map((doc) => doc.getDocsDomElment());
+    this.DirDomElement.append(...children);
+    return this.DirDomElement;
   }
 }
 
 export class Article extends Docs {
+  articleDomElement!: MenubarArticle;
   constructor({ name }: { name: string }) {
-    super({ name, type: 'directory' });
+    super({ name, type: 'article' });
+    this.registDomElement();
+  }
+  registDomElement() {
+    const menubarArticleElement = new MenubarArticle();
+    menubarArticleElement.name = this.name;
+    this.articleDomElement = menubarArticleElement;
+  }
+  getDocsDomElment() {
+    return this.articleDomElement;
   }
 }
 
@@ -50,5 +75,8 @@ export class DocsModel {
       const article = new Article({ name: docsMetaDataJSON.name });
       return article;
     }
+  }
+  getDocsDomElment() {
+    return this.rootDirectory.getDocsDomElment();
   }
 }
