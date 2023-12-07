@@ -1,8 +1,8 @@
-import { LitElement, html, css, nothing } from 'lit';
+import { LitElement, html, css } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { ref, Ref, createRef } from 'lit/directives/ref.js';
 
-import { MenubarArticle } from './menubar-article';
+import { Directory } from '../../Models/Directory.model';
 
 const FOLDERICON = {
   OPENED: 'folder-open-outline',
@@ -59,7 +59,7 @@ export class MenubarDirectory extends LitElement {
   innerDirectoryRef: Ref<HTMLDivElement> = createRef();
 
   @property() name: string = '폴더';
-  @property({ type: Array }) innerDirElements!: (MenubarArticle | MenubarDirectory)[];
+  @property({ attribute: false }) model!: Directory;
   @state() isOpend: boolean = false;
 
   activeFolder() {

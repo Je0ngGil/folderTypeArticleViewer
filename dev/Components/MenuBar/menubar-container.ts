@@ -1,11 +1,14 @@
 import { LitElement, html, css } from 'lit';
-import { customElement, property, state } from 'lit/decorators.js';
+import { customElement, state } from 'lit/decorators.js';
 import { Task } from '@lit/task';
 
 import './menubar-header';
 import './menubar-body';
 
-import { DocsModel } from '../../Models/docsModel';
+import { MenubarArticle } from './menubar-article';
+import { MenubarDirectory } from './menubar-directory';
+import { DocsModelController } from '../../Controllers/docsModel.controller';
+import { Article } from '../../Models/Article.model';
 
 @customElement('menubar-container')
 class MenuBarContainer extends LitElement {
@@ -25,25 +28,36 @@ class MenuBarContainer extends LitElement {
   `;
 
   @state()
-  docsModel!: DocsModel;
+  docsModelController!: DocsModelController;
 
-  _getDataTask = new Task(this, {
+  _getDataModel = new Task(this, {
     task: async () => {
       await new Promise((res) => setTimeout(res, 500)); // 임사 로딩
-      const response = await fetch('/docs-metadata.json');
+      const response = await fetch('docs-metadata.json');
       const docsMetaDataJSON = await response.json();
-      this.docsModel = new DocsModel(docsMetaDataJSON);
+      this.docsModelController = new DocsModelController(docsMetaDataJSON);
+      this.InitDocsModel();
 
-      return this.docsModel.getDocsDomElment();
+      return this.docsModelController.getRootDirElment();
     },
     autoRun: true,
     args: () => [],
   });
 
+  InitDocsModel() {
+    // Article 클릭 시 Article 컴포넌트로 경로를 전달하는 리스너 설정
+    this.docsModelController.addEventListenerToRootDirectory('click', (e) => {
+      const model = (e.target as MenubarDirectory | MenubarArticle).model;
+      if (model.type === 'article') {
+        const path = (model as Article).getCurrentPath();
+        console.log(path);
+      }
+    });
+  }
+
   override render() {
-    setTimeout(() => {}, 3000);
     return html`
-      ${this._getDataTask.render({
+      ${this._getDataModel.render({
         initial: () => html`<loding-spinner />`,
         pending: () => html`<loding-spinner />`,
         complete: (docsDomElement) => html`<menubar-body .docsDomElement=${docsDomElement}></menubar-body>`,

@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { Article } from '../../Models/Article.model';
 
 @customElement('menubar-article')
 export class MenubarArticle extends LitElement {
@@ -16,8 +17,8 @@ export class MenubarArticle extends LitElement {
     }
   `;
 
-  @property()
-  name?: string;
+  @property() name?: string;
+  @property({ attribute: false }) model!: Article;
 
   override render() {
     return html`<div id="article">
