@@ -1,5 +1,5 @@
-import { Directory } from '../Models/Directory.model';
-import { Article } from '../Models/Article.model';
+import { Directory } from '../Models/Menubar/Directory.model';
+import { Article } from '../Models/Menubar/Article.model';
 
 type DocsMetaDataJSON = {
   name: string;

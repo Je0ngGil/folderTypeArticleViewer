@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { Article } from '../../Models/Article.model';
+import { Article } from '../../Models/Menubar/Article.model';
 
 @customElement('menubar-article')
 export class MenubarArticle extends LitElement {

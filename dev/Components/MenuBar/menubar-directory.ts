@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { ref, Ref, createRef } from 'lit/directives/ref.js';
 
-import { Directory } from '../../Models/Directory.model';
+import { Directory } from '../../Models/Menubar/Directory.model';
 
 const FOLDERICON = {
   OPENED: 'folder-open-outline',
