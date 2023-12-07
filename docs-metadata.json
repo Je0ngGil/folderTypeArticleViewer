@@ -11,6 +11,20 @@
       "type": "article"
     },
     {
+      "name": "testFolder",
+      "type": "directory",
+      "children": [
+        {
+          "name": "test.md",
+          "type": "article"
+        },
+        {
+          "name": "테스트.md",
+          "type": "article"
+        }
+      ]
+    },
+    {
       "name": "테스트빈폴더",
       "type": "directory",
       "children": []
