@@ -3,11 +3,7 @@ import { customElement } from 'lit/decorators.js';
 
 @customElement('article-body')
 export class ArticleBody extends LitElement {
-  static override styles = css`
-    :host {
-      border: 1px solid red;
-    }
-  `;
+  static override styles = css``;
 
   override render() {
     return html`<ion-icon name="folder-outline"></ion-icon>`;

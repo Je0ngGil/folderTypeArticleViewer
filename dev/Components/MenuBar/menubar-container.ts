@@ -32,7 +32,7 @@ class MenuBarContainer extends LitElement {
 
   _getDataModel = new Task(this, {
     task: async () => {
-      await new Promise((res) => setTimeout(res, 500)); // 임사 로딩
+      await new Promise((res) => setTimeout(res, 1000)); // 임사 로딩
       const response = await fetch('docs-metadata.json');
       const docsMetaDataJSON = await response.json();
       this.docsModelController = new DocsModelController(docsMetaDataJSON);
@@ -50,7 +50,7 @@ class MenuBarContainer extends LitElement {
       const model = (e.target as MenubarDirectory | MenubarArticle).model;
       if (model.type === 'article') {
         const path = (model as Article).getCurrentPath();
-        const event = new CustomEvent('my-event', { detail: { path } });
+        const event = new CustomEvent('requestContent', { detail: { path } });
         this.dispatchEvent(event);
       }
     });
