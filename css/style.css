@@ -38,8 +38,6 @@ body {
   min-height: 100vh;
   max-height: max-content;
 
-  border: 1px solid blue;
-
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;

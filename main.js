@@ -1,1 +1,1 @@
-(()=>{"use strict";const e=document.body,t=document.createElement("menubar-container"),n=document.createElement("article-container");e.append(t,n)})();
+(()=>{"use strict";const e=document.body,t=document.createElement("menubar-container"),n=document.createElement("article-container");t.addEventListener("requestContent",(e=>{const t=e.detail.path;n.renderArticleByPath(t)})),e.append(t,n)})();
