@@ -1,5 +1,5 @@
 import { Docs } from './Docs.model';
-import { MenubarArticle } from '../Components/MenuBar/menubar-article';
+import { MenubarArticle } from '../../Components/MenuBar/menubar-article';
 
 export class Article extends Docs {
   articleDomElement!: MenubarArticle;

@@ -8,7 +8,7 @@ import './menubar-body';
 import { MenubarArticle } from './menubar-article';
 import { MenubarDirectory } from './menubar-directory';
 import { DocsModelController } from '../../Controllers/docsModel.controller';
-import { Article } from '../../Models/Article.model';
+import { Article } from '../../Models/Menubar/Article.model';
 
 @customElement('menubar-container')
 class MenuBarContainer extends LitElement {
@@ -50,7 +50,8 @@ class MenuBarContainer extends LitElement {
       const model = (e.target as MenubarDirectory | MenubarArticle).model;
       if (model.type === 'article') {
         const path = (model as Article).getCurrentPath();
-        console.log(path);
+        const event = new CustomEvent('my-event', { detail: { path } });
+        this.dispatchEvent(event);
       }
     });
   }

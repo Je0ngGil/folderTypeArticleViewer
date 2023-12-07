@@ -1,6 +1,6 @@
 import { Docs } from './Docs.model';
 import { Article } from './Article.model';
-import { MenubarDirectory } from '../Components/MenuBar/menubar-directory';
+import { MenubarDirectory } from '../../Components/MenuBar/menubar-directory';
 
 export class Directory extends Docs {
   children!: (Directory | Article)[];

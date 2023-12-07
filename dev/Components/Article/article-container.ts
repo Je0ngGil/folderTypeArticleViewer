@@ -21,3 +21,11 @@ declare global {
     'article-container': ArticleContainer;
   }
 }
+
+/*
+역할.
+컨텐츠 경로를 받아 body에 뿌리기
+컨텐츠의 종류는 markdown, text, html 일수도 있음 (미정)
+  menubar에서 컨텐츠 경로를 디스패치 -> main에서 캐치 -> article container로 전달하기
+
+*/
