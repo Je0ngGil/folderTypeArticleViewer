@@ -21,7 +21,9 @@ export class ArticleContainer extends LitElement {
       await new Promise((res) => setTimeout(res, 1000)); // 임시 로딩
       const response = await fetch(pathOfArticle);
       const result = await response.text();
-      return result;
+      const a = document.createElement('div');
+      a.innerHTML = result;
+      return a;
     },
     autoRun: true,
     args: () => [this.pathOfArticle],
