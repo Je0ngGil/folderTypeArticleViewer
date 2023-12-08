@@ -129,6 +129,24 @@
           "type": "article"
         }
       ]
+    },
+    {
+      "name": "진짜테스트",
+      "type": "directory",
+      "children": [
+        {
+          "name": "123.md",
+          "type": "article"
+        },
+        {
+          "name": "45.md",
+          "type": "article"
+        },
+        {
+          "name": "67.md",
+          "type": "article"
+        }
+      ]
     }
   ]
 }
