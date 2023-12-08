@@ -3,6 +3,31 @@
   "type": "directory",
   "children": [
     {
+      "name": "asd",
+      "type": "directory",
+      "children": [
+        {
+          "name": "testEmptyFolder",
+          "type": "directory",
+          "children": []
+        },
+        {
+          "name": "테스트2.md",
+          "type": "article"
+        }
+      ]
+    },
+    {
+      "name": "qwe",
+      "type": "directory",
+      "children": [
+        {
+          "name": "테스트.md",
+          "type": "article"
+        }
+      ]
+    },
+    {
       "name": "test.md",
       "type": "article"
     },
@@ -30,32 +55,7 @@
       ]
     },
     {
-      "name": "숫자가들어가서",
-      "type": "directory",
-      "children": [
-        {
-          "name": "테스트.md",
-          "type": "article"
-        }
-      ]
-    },
-    {
-      "name": "안되는건가",
-      "type": "directory",
-      "children": [
-        {
-          "name": "testEmptyFolder",
-          "type": "directory",
-          "children": []
-        },
-        {
-          "name": "테스트2.md",
-          "type": "article"
-        }
-      ]
-    },
-    {
-      "name": "우앙",
+      "name": "zxc",
       "type": "directory",
       "children": [
         {
