@@ -28,6 +28,72 @@
       ]
     },
     {
+      "name": "test",
+      "type": "directory",
+      "children": [
+        {
+          "name": "eng",
+          "type": "directory",
+          "children": [
+            {
+              "name": "test.md",
+              "type": "article"
+            }
+          ]
+        },
+        {
+          "name": "eng12",
+          "type": "directory",
+          "children": [
+            {
+              "name": "test.md",
+              "type": "article"
+            }
+          ]
+        },
+        {
+          "name": "한글숫자2",
+          "type": "directory",
+          "children": [
+            {
+              "name": "test.md",
+              "type": "article"
+            }
+          ]
+        },
+        {
+          "name": "한글폴더",
+          "type": "directory",
+          "children": [
+            {
+              "name": "eng",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "test.md",
+                  "type": "article"
+                }
+              ]
+            },
+            {
+              "name": "test.md",
+              "type": "article"
+            },
+            {
+              "name": "한글폴더",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "test.md",
+                  "type": "article"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "test.md",
       "type": "article"
     },
