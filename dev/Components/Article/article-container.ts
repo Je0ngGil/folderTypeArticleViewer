@@ -2,6 +2,8 @@ import { LitElement, html, css } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
 import { Task } from '@lit/task';
 
+import { Formmater } from '../../util/formatter';
+
 @customElement('article-container')
 export class ArticleContainer extends LitElement {
   static override styles = css`
@@ -22,7 +24,8 @@ export class ArticleContainer extends LitElement {
       const response = await fetch(pathOfArticle);
       const result = await response.text();
       const a = document.createElement('div');
-      a.innerHTML = result;
+      a.insertAdjacentHTML('afterbegin', Formmater.MarkdownToHtmlFormatter(result));
+
       return a;
     },
     autoRun: true,
@@ -33,7 +36,7 @@ export class ArticleContainer extends LitElement {
     return html` ${this._requestArticle.render({
       initial: () => html`<loding-spinner />`,
       pending: () => html`<loding-spinner />`,
-      complete: (result) => html`<div>${result}</div>`,
+      complete: (result) => html`${result}`,
       error: (error) => html`<p>Oops, something went wrong: ${error}</p>`,
     })}`;
   }
