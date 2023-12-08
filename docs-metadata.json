@@ -3,16 +3,6 @@
   "type": "directory",
   "children": [
     {
-      "name": "TestFolder1",
-      "type": "directory",
-      "children": [
-        {
-          "name": "테스트.md",
-          "type": "article"
-        }
-      ]
-    },
-    {
       "name": "test.md",
       "type": "article"
     },
@@ -40,7 +30,17 @@
       ]
     },
     {
-      "name": "testFolder2",
+      "name": "숫자가들어가서",
+      "type": "directory",
+      "children": [
+        {
+          "name": "테스트.md",
+          "type": "article"
+        }
+      ]
+    },
+    {
+      "name": "안되는건가",
       "type": "directory",
       "children": [
         {
@@ -55,7 +55,7 @@
       ]
     },
     {
-      "name": "testFolder3",
+      "name": "우앙",
       "type": "directory",
       "children": [
         {
