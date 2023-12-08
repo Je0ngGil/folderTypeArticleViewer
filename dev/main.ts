@@ -7,6 +7,7 @@ MenuBarContainerElement.addEventListener('requestContent', (e: any) => {
   let path = e.detail.path;
   //ArticleContainerElement path 전달
   path = '/' + path;
+  console.log(path);
   ArticleContainerElement.renderArticleByPath(path);
 });
 
