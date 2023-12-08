@@ -6,10 +6,6 @@ const ArticleContainerElement = document.createElement('article-container');
 
 MenuBarContainerElement.addEventListener('requestContent', (e: any) => {
   let path = e.detail.path;
-  //ArticleContainerElement path 전달
-  path = path.replace(/\.[^/.]+$/, '');
-  console.log(path);
-  console.log(COTEXT_ENV);
   ArticleContainerElement.renderArticleByPath(path);
 });
 
