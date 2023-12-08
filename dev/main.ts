@@ -6,7 +6,7 @@ const ArticleContainerElement = document.createElement('article-container');
 MenuBarContainerElement.addEventListener('requestContent', (e: any) => {
   let path = e.detail.path;
   //ArticleContainerElement path 전달
-  path = '/' + path;
+  path = path.replace(/\.[^/.]+$/, '');
   console.log(path);
   ArticleContainerElement.renderArticleByPath(path);
 });
