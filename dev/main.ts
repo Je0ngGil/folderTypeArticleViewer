@@ -1,3 +1,4 @@
+declare const COTEXT_ENV = 'development';
 // Dom Elements
 const BodyElement = document.body;
 const MenuBarContainerElement = document.createElement('menubar-container');
@@ -8,6 +9,7 @@ MenuBarContainerElement.addEventListener('requestContent', (e: any) => {
   //ArticleContainerElement path 전달
   path = path.replace(/\.[^/.]+$/, '');
   console.log(path);
+  console.log(COTEXT_ENV);
   ArticleContainerElement.renderArticleByPath(path);
 });
 

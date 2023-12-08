@@ -10,7 +10,7 @@ export class ArticleContainer extends LitElement {
       height: 100%;
     }
   `;
-  @state() pathOfArticle: string = 'docs/test.md';
+  @state() pathOfArticle: string = 'docs/test';
 
   renderArticleByPath(path: string) {
     this.pathOfArticle = path;
