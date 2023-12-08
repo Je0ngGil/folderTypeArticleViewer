@@ -4,8 +4,9 @@ const MenuBarContainerElement = document.createElement('menubar-container');
 const ArticleContainerElement = document.createElement('article-container');
 
 MenuBarContainerElement.addEventListener('requestContent', (e: any) => {
-  const path = e.detail.path;
+  let path = e.detail.path;
   //ArticleContainerElement path 전달
+  path = '/' + path;
   ArticleContainerElement.renderArticleByPath(path);
 });
 
