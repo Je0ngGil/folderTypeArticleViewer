@@ -8,7 +8,7 @@
     "createDocsMetaData": "node script/createDocsMetadata.js",
     "build": "webpack --mode production",
     "start:dev": "webpack serve --mode development",
-    "posting": "npm run createDocsMetaData && git commit -am '$m' && git push origin main"
+    "posting": "npm run createDocsMetaData && git commit -am %m% && git push origin main"
   },
   "author": "",
   "license": "ISC",
