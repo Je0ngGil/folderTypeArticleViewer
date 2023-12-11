@@ -5,9 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "DocsScript": "node script/createDocsMetadata.js",
+    "createDocsMetaData": "node script/createDocsMetadata.js",
     "build": "webpack --mode production",
-    "start:dev": "webpack serve --mode development"
+    "start:dev": "webpack serve --mode development",
+    "posting": "npm run createDocsMetaData && git commit -am '$msg'"
   },
   "author": "",
   "license": "ISC",

@@ -1,16 +1,5 @@
 {
   "name": "docs",
   "type": "directory",
-  "children": [
-    {
-      "name": "Blog",
-      "type": "directory",
-      "children": [
-        {
-          "name": "Blog소개.md",
-          "type": "article"
-        }
-      ]
-    }
-  ]
+  "children": []
 }
