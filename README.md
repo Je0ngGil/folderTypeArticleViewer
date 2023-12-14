@@ -1,11 +1,63 @@
-## 폴더형 개발 블로그
+## Code
 
-폴더 형식의 개발 블로그입니다.
+Inline `code`
 
-흔히 사용하는 컴퓨터의 파일 시스템처럼 글을 폴더로 분류하고 저장합니다.
+Indented code
 
-필요한 자료를 쉽게 발견 및 접근할 수 있도록 구현하는 것이 목적입니다.
+    // Some comments
+    line 1 of code
+    line 2 of code
+    line 3 of code
 
-## 업데이트 사항
+Block code "fences"
 
-## 구현
+```
+Sample text here...
+```
+
+Syntax highlighting
+
+```js
+var foo = function (bar) {
+  return bar++;
+};
+
+console.log(foo(5));
+```
+
+## Tables
+
+| Option | Description                                                               |
+| ------ | ------------------------------------------------------------------------- |
+| data   | path to data files to supply the data that will be passed into templates. |
+| engine | engine to be used for processing templates. Handlebars is the default.    |
+| ext    | extension to be used for dest files.                                      |
+
+Right aligned columns
+
+| Option |                                                               Description |
+| -----: | ------------------------------------------------------------------------: |
+|   data | path to data files to supply the data that will be passed into templates. |
+| engine |    engine to be used for processing templates. Handlebars is the default. |
+|    ext |                                      extension to be used for dest files. |
+
+## Links
+
+[link text](http://dev.nodeca.com)
+
+[link with title](http://nodeca.github.io/pica/demo/ 'title text!')
+
+Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
+
+## Images
+
+![Minion](https://octodex.github.com/images/minion.png =300x200)
+![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg 'The Stormtroopocat')
+
+Like links, Images also have a footnote style syntax
+
+![Alt text][id]
+
+With a reference later in the document defining the URL location:
+
+[id]: https://octodex.github.com/images/dojocat.jpg 'The Dojocat'

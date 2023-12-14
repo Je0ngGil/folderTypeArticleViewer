@@ -1,11 +1,27 @@
-import { unified } from 'unified';
-import markdown from 'remark-parse';
-import remark2rehype from 'remark-rehype';
-import html from 'rehype-stringify';
+import markdownit from 'markdown-it';
+import hljs from 'highlight.js';
 
 export class Formmater {
   static MarkdownToHtmlFormatter(markdownText: string) {
-    const html_text = unified().use(markdown).use(remark2rehype).use(html).processSync(markdownText);
-    return html_text.toString();
+    const md = markdownit({
+      linkify: true,
+      typographer: true,
+      highlight: function (str, lang) {
+        if (lang && hljs.getLanguage(lang)) {
+          try {
+            return (
+              '<pre><code class="hljs">' +
+              hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
+              '</code></pre>'
+            );
+          } catch (__) {}
+        }
+
+        return '<pre><code class="hljs">' + md.utils.escapeHtml(str) + '</code></pre>';
+      },
+    }) as any;
+
+    const result = md.render(markdownText);
+    return result;
   }
 }
