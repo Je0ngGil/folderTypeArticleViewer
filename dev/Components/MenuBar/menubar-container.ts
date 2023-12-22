@@ -57,6 +57,9 @@ class MenuBarContainer extends LitElement {
         const path = (model as Article).getCurrentPath();
         const event = new CustomEvent('requestContent', { detail: { path } });
         this.dispatchEvent(event);
+
+        this.docsModelController.unSelectAllArticles();
+        (model as Article).select();
       }
     });
   }

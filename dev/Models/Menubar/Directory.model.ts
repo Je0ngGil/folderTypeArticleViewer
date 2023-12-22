@@ -39,4 +39,8 @@ export class Directory extends Docs {
   getDocsDomElment() {
     return this.DirDomElement;
   }
+  unSelectAllArticles() {
+    this.ArticleChildren.forEach((articleModel) => articleModel.unSelect());
+    this.DirChildren.forEach((dirModel) => dirModel.unSelectAllArticles());
+  }
 }

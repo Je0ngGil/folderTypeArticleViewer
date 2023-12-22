@@ -30,4 +30,7 @@ export class DocsModelController {
     const rootDirElement = this.getRootDirElment();
     rootDirElement.addEventListener(type, evnetListener);
   }
+  unSelectAllArticles() {
+    this.rootDirectory.unSelectAllArticles();
+  }
 }
