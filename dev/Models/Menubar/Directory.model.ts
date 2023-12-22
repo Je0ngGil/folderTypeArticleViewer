@@ -4,6 +4,8 @@ import { MenubarDirectory } from '../../Components/MenuBar/menubar-directory';
 
 export class Directory extends Docs {
   children!: (Directory | Article)[];
+  DirChildren: Directory[] = [];
+  ArticleChildren: Article[] = [];
   DirDomElement!: MenubarDirectory;
   constructor({ name }: { name: string }) {
     super({ name, type: 'directory' });
@@ -16,15 +18,29 @@ export class Directory extends Docs {
     this.DirDomElement = menubarDirElement;
   }
   registChildren(children: (Directory | Article)[]) {
-    this.children = children;
-    children.forEach((doc) => doc.registParent(this));
+    for (let doc of children) {
+      if (doc.type === 'directory') {
+        this.DirChildren.push(doc as Directory);
+      } else {
+        this.ArticleChildren.push(doc as Article);
+      }
+    }
+
+    this.DirChildren.forEach((dir) => dir.registParent(this));
+    this.ArticleChildren.forEach((article) => article.registParent(this));
+
     this.appendChildDocDomElement();
   }
   appendChildDocDomElement() {
-    const children = this.children.map((doc) => doc.getDocsDomElment());
-    this.DirDomElement.append(...children);
+    const dirElementChildren = this.DirChildren.map((dir) => dir.getDocsDomElment());
+    const articleElementChildren = this.ArticleChildren.map((article) => article.getDocsDomElment());
+    this.DirDomElement.append(...dirElementChildren, ...articleElementChildren);
   }
   getDocsDomElment() {
     return this.DirDomElement;
+  }
+  unSelectAllArticles() {
+    this.ArticleChildren.forEach((articleModel) => articleModel.unSelect());
+    this.DirChildren.forEach((dirModel) => dirModel.unSelectAllArticles());
   }
 }

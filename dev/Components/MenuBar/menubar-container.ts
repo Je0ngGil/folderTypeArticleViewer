@@ -24,6 +24,11 @@ class MenuBarContainer extends LitElement {
       flex-direction: column;
 
       border: 1px solid black;
+
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
     }
   `;
 
@@ -32,7 +37,7 @@ class MenuBarContainer extends LitElement {
 
   _getDataModel = new Task(this, {
     task: async () => {
-      await new Promise((res) => setTimeout(res, 1000)); // 임사 로딩
+      // await new Promise((res) => setTimeout(res, 1000)); // 임사 로딩
       const response = await fetch('docs-metadata.json');
       const docsMetaDataJSON = await response.json();
       this.docsModelController = new DocsModelController(docsMetaDataJSON);
@@ -52,6 +57,9 @@ class MenuBarContainer extends LitElement {
         const path = (model as Article).getCurrentPath();
         const event = new CustomEvent('requestContent', { detail: { path } });
         this.dispatchEvent(event);
+
+        this.docsModelController.unSelectAllArticles();
+        (model as Article).select();
       }
     });
   }

@@ -25,4 +25,10 @@ export class Article extends Docs {
     }
     return path;
   }
+  select() {
+    this.articleDomElement.isSelect = true;
+  }
+  unSelect() {
+    this.articleDomElement.isSelect = false;
+  }
 }
