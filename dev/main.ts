@@ -1,4 +1,3 @@
-declare const COTEXT_ENV = 'development';
 // Dom Elements
 const BodyElement = document.body;
 const MenuBarContainerElement = document.createElement('menubar-container');

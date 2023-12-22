@@ -1,15 +1,15 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
-import { Task } from '@lit/task';
 
-import { Formmater } from '../../util/formatter';
+import './article-body';
 
 @customElement('article-container')
 export class ArticleContainer extends LitElement {
   static override styles = css`
     :host {
-      width: 100%;
-      height: 100%;
+      position: absolute;
+      left: 0;
+      margin: 20px;
     }
   `;
   @state() pathOfArticle: string = 'README.md';
@@ -18,27 +18,8 @@ export class ArticleContainer extends LitElement {
     this.pathOfArticle = path;
   }
 
-  _requestArticle = new Task(this, {
-    task: async ([pathOfArticle]) => {
-      await new Promise((res) => setTimeout(res, 1000)); // 임시 로딩
-      const response = await fetch(pathOfArticle);
-      const result = await response.text();
-      const a = document.createElement('div');
-      a.insertAdjacentHTML('afterbegin', Formmater.MarkdownToHtmlFormatter(result));
-
-      return a;
-    },
-    autoRun: true,
-    args: () => [this.pathOfArticle],
-  });
-
   override render() {
-    return html` ${this._requestArticle.render({
-      initial: () => html`<loding-spinner />`,
-      pending: () => html`<loding-spinner />`,
-      complete: (result) => html`${result}`,
-      error: (error) => html`<p>Oops, something went wrong: ${error}</p>`,
-    })}`;
+    return html`<article-body pathOfArticle=${this.pathOfArticle}></article-body>`;
   }
 }
 
@@ -47,3 +28,9 @@ declare global {
     'article-container': ArticleContainer;
   }
 }
+
+/*
+container에서 MD을 body로 내보낸다
+body는 선택된 테마의 Fomatter에게 마크다운을 HTML로 변환을 요청한다
+응답을 받은 body는 HTML을 화면에 렌더링한다
+ */

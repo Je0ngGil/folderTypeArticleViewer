@@ -34,7 +34,6 @@ body {
   /* font-family: var(--body-font); */
   /* font-size: var(--normal-font-size); */
   transition: 0.5s;
-
   min-height: 100vh;
   max-height: max-content;
 }
