@@ -40,6 +40,6 @@
   폴더를 열어 문서를 클릭했을 때 어느 문서에 들어와 있는지 표시하는 기능을 추가했다.
 
 - ### 전
-  <img src="./public/README/1.0.0.png" width="50%">
+  <img src="./public/README/1.0.0.png" width="100%">
 - ### 후
-  <img src="./public/README/1.0.1.png" width="50%">
+  <img src="./public/README/1.0.1.png" width="100%">
