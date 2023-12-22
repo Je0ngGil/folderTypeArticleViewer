@@ -36,4 +36,10 @@
   [github-markdown-css](https://github.com/sindresorhus/github-markdown-css)
 
 - ### 현재 선택된 문서를 표시
+
   폴더를 열어 문서를 클릭했을 때 어느 문서에 들어와 있는지 표시하는 기능을 추가했다.
+
+- ### 전
+  <img src="./public/README/1.0.0.png" width="50%">
+- ### 후
+  <img src="./public/README/1.0.1.png" width="50%">
