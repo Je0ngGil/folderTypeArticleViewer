@@ -1,64 +1,39 @@
-## Code
+## 폴더형 개발 블로그
 
-Inline `code`
+폴더 형식의 개발 블로그입니다.
 
-Indented code
+흔히 사용하는 컴퓨터의 파일 시스템처럼 글을 폴더로 분류하고 저장합니다.
 
-    // Some comments
-    line 1 of code
-    line 2 of code
-    line 3 of code
+필요한 자료를 쉽게 발견 및 접근할 수 있도록 구현하는 것이 목적입니다.
 
-Block code "fences"
+## 업데이트 사항
 
-```
-Sample text here...
-```
+### [1.0.1 업데이트 사항](https://github.com/Je0ngGil/Je0ngGil.github.io/issues/13)
 
-Syntax highlighting
+- ### 뷰 테마
 
-```js
-var foo = function (bar) {
-  return bar++;
-};
+  기존에 markdown 파일을 웹에 렌더링하기 위해서 아무런 스타일없이 markdown -> html 변환 라이브러리만 사용했다.  
+  단순히 문서만 렌더링하고 읽을 수만 있으면 됐다고 생각했지만,  
+  HTML 하나만으로는 글을 읽기에 단락 구분이 힘들었고, 가독성이 매우 떨어진다고 느꼈다.  
+  또한 업데이트 사항에 작성한 "markdown에 code블록이 작동되지 않는다" 는 html에서 code태그를 말하는데,  
+  code태그는 컴퓨터 코드를 정의하는 데 사용될 뿐이고 아무런 스타일이 없다는 것을 알았다.  
+  그래서 css를 적용했다.  
+  적용한 테마는 github-markdown-css 이다.  
+  추후에 여러 테마를 추가해서 테마를 골라 문서를 볼 수 있도록 하면 좋을 것 같다.
 
-console.log(foo(5));
-```
+- ### \<img> 태그 이미지 적용이 안됨
 
-## Tables
+  markdown에선 이미지를 첨부하는 방법은 두 가지다
 
-| Option | Description                                                               |
-| ------ | ------------------------------------------------------------------------- |
-| data   | path to data files to supply the data that will be passed into templates. |
-| engine | engine to be used for processing templates. Handlebars is the default.    |
-| ext    | extension to be used for dest files.                                      |
+  1. **\![이미지 설명]\(이미지 경로)**
+  2. **\<img src="이미지 경로">**
 
-Right aligned columns
+  기존 사용한 라이브러리는 첫 번째 방식을 파싱하지 못하고 이미지 태그를 단순 문자열로 변환했다.  
+  markdown -> html 변환 라이브러리를 변경해야 했는데,  
+  추후에 여러 뷰 테마를 추가 적용하기 위해서 markdown -> html 변환하는 방법은 각 테마마다 달라야 했다.  
+  이유는 테마마다 markdown -> html 변환시 tag에 사용하는 css선택자 이름이 제각각이기 때문이다.  
+  이번에 추가한 테마는 github markdown 스타일을 복제한 테마이다.  
+  [github-markdown-css](https://github.com/sindresorhus/github-markdown-css)
 
-| Option |                                                               Description |
-| -----: | ------------------------------------------------------------------------: |
-|   data | path to data files to supply the data that will be passed into templates. |
-| engine |    engine to be used for processing templates. Handlebars is the default. |
-|    ext |                                      extension to be used for dest files. |
-
-## Links
-
-[link text](http://dev.nodeca.com)
-
-[link with title](http://nodeca.github.io/pica/demo/ 'title text!')
-
-Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
-
-## Images
-
-<img src="https://octodex.github.com/images/minion.png" width=100px>
-
-![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg 'The Stormtroopocat')
-
-Like links, Images also have a footnote style syntax
-
-![Alt text][id]
-
-With a reference later in the document defining the URL location:
-
-[id]: https://octodex.github.com/images/dojocat.jpg 'The Dojocat'
+- ### 현재 선택된 문서를 표시
+  폴더를 열어 문서를 클릭했을 때 어느 문서에 들어와 있는지 표시하는 기능을 추가했다.
