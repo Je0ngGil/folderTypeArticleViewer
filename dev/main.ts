@@ -9,3 +9,5 @@ MenuBarContainerElement.addEventListener('requestContent', (e: any) => {
 });
 
 BodyElement.append(MenuBarContainerElement, ArticleContainerElement);
+
+console.log('내용이 바뀌나?');

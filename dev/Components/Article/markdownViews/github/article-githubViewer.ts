@@ -37,7 +37,8 @@ export class ArticleGitHubViewer extends LitElement {
           const MarkdownBody = document.createElement('div');
           MarkdownBody.classList.add('markdown-body');
           MarkdownBody.insertAdjacentHTML('afterbegin', result);
-          return html`${MarkdownBody}`;
+          // return html`${MarkdownBody}`;
+          return html`this.markdownText`;
         },
         error: (error) => html`<p>Oops, something went wrong: ${error}</p>`,
       })}
