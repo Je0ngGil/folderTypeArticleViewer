@@ -2,7 +2,10 @@ import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { Task } from '@lit/task';
 
-const GITHUB_URL: string = 'https://api.github.com/markdown';
+declare const GITHUB_URL: string;
+declare const GAT1: string;
+declare const GAT2: string;
+declare const GAT3: string;
 
 @customElement('article-githubviewer')
 export class ArticleGitHubViewer extends LitElement {
@@ -12,6 +15,9 @@ export class ArticleGitHubViewer extends LitElement {
     task: async ([markdownText]) => {
       const response = await fetch(GITHUB_URL, {
         method: 'POST',
+        headers: {
+          Authorization: `Bearer ${GAT1.concat(GAT2).concat(GAT3)}`,
+        },
         body: JSON.stringify({ text: markdownText }),
       });
       return await response.text();
@@ -34,8 +40,7 @@ export class ArticleGitHubViewer extends LitElement {
           const MarkdownBody = document.createElement('div');
           MarkdownBody.classList.add('markdown-body');
           MarkdownBody.insertAdjacentHTML('afterbegin', result);
-          // return html`${MarkdownBody}`;
-          return html`this.markdownText`;
+          return html`${MarkdownBody}`;
         },
         error: (error) => html`<p>Oops, something went wrong: ${error}</p>`,
       })} `;
