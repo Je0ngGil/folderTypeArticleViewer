@@ -2,25 +2,16 @@ import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { Task } from '@lit/task';
 
-import { gitHubCSS } from './githubViewerStyle';
-
-declare const GITHUB_ACCESS_TOKEN: string;
-declare const GITHUB_URL: string;
+const GITHUB_URL: string = 'https://api.github.com/markdown';
 
 @customElement('article-githubviewer')
 export class ArticleGitHubViewer extends LitElement {
-  static override styles = gitHubCSS;
-
   @property({ attribute: false }) markdownText = '';
 
   _requestTransformToHTML = new Task(this, {
     task: async ([markdownText]) => {
       const response = await fetch(GITHUB_URL, {
         method: 'POST',
-        headers: {
-          Accept: 'application/vnd.github+json',
-          Authorization: `Bearer ${GITHUB_ACCESS_TOKEN}`,
-        },
         body: JSON.stringify({ text: markdownText }),
       });
       return await response.text();
@@ -29,7 +20,13 @@ export class ArticleGitHubViewer extends LitElement {
   });
 
   override render() {
-    return html`
+    return html`<link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.0/github-markdown-light.css"
+        integrity="sha512-twSIkcOWTg8pO2szOkSwXeumnI79JQ0zVRavBB5cdJvhVFhReF9fBlyFM380P6vKIQ4mlD80EPtuZdSPpqYDgQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      />
       ${this._requestTransformToHTML.render({
         initial: () => html`<loding-spinner />`,
         pending: () => html`<loding-spinner />`,
@@ -40,8 +37,7 @@ export class ArticleGitHubViewer extends LitElement {
           return html`${MarkdownBody}`;
         },
         error: (error) => html`<p>Oops, something went wrong: ${error}</p>`,
-      })}
-    `;
+      })} `;
   }
 }
 

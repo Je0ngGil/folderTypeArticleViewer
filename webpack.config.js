@@ -39,7 +39,6 @@ export default () => {
         ],
       }),
       new webpack.DefinePlugin({
-        GITHUB_ACCESS_TOKEN: JSON.stringify(process.env.GITHUB_ACCESS_TOKEN),
         GITHUB_URL: JSON.stringify(process.env.GITHUB_URL),
       }),
     ],
