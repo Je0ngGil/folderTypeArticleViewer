@@ -23,6 +23,7 @@ export class ArticleGitHubViewer extends LitElement {
       return await response.text();
     },
     args: () => [this.markdownText],
+    autoRun: true,
   });
 
   override render() {

@@ -7,7 +7,8 @@ import './article-body';
 export class ArticleContainer extends LitElement {
   static override styles = css`
     :host {
-      position: absolute;
+      display: block;
+      position: relative;
       left: 0;
       margin: 20px;
     }
