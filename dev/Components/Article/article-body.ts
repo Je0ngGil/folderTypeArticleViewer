@@ -2,7 +2,7 @@ import { LitElement, css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { Task } from '@lit/task';
 
-import './markdownViews/github/article-githubViewer';
+import { ViewModel } from '../../Models/Article/view.model';
 
 @customElement('article-body')
 export class ArticleBody extends LitElement {
@@ -23,7 +23,7 @@ export class ArticleBody extends LitElement {
     return html`${this._requestArticle.render({
       initial: () => html`<loding-spinner />`,
       pending: () => html`<loding-spinner />`,
-      complete: (result) => html`<article-GithubViewer .markdownText=${result}></article-GithubViewer> `,
+      complete: (result) => html`${ViewModel.renderMarkdownToHTML(result)}`,
       error: (error) => html`<p>Oops, something went wrong: ${error}</p>`,
     })}`;
   }
