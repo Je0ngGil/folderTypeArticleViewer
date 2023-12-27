@@ -3,6 +3,7 @@ import { customElement, property } from 'lit/decorators.js';
 import { Task } from '@lit/task';
 
 import { ViewModel } from '../../Models/Article/view.model';
+import './article-viewerRemocon';
 
 @customElement('article-body')
 export class ArticleBody extends LitElement {
@@ -21,11 +22,11 @@ export class ArticleBody extends LitElement {
 
   override render() {
     return html`${this._requestArticle.render({
-      initial: () => html`<loding-spinner />`,
-      pending: () => html`<loding-spinner />`,
-      complete: (result) => html`${ViewModel.renderMarkdownToHTML(result)}`,
-      error: (error) => html`<p>Oops, something went wrong: ${error}</p>`,
-    })}`;
+        initial: () => html`<loding-spinner />`,
+        pending: () => html`<loding-spinner />`,
+        complete: (result) => html`${ViewModel.renderMarkdownToHTML(result)}`,
+        error: (error) => html`<p>Oops, something went wrong: ${error}</p>`,
+      })} <article-viewerremocon .viewerNameList=${ViewModel.getViewerNameList()}> </article-viewerremocon> `;
   }
 }
 

@@ -1,4 +1,4 @@
-export { ArticleBasicViewer } from './article-basicViewer';
-export { ArticleSplendorViewer } from './article-splendorViewer';
-export { ArticleModestViewer } from './article-modestViewer';
-export { ArticleAirViewer } from './article-airViewer';
+export { ArticleBasicViewer } from './basic/article-basicViewer';
+export { ArticleSplendorViewer } from './splendor/article-splendorViewer';
+export { ArticleModestViewer } from './modest/article-modestViewer';
+export { ArticleAirViewer } from './air/article-airViewer';

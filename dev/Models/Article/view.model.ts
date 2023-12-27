@@ -17,7 +17,7 @@ export class ViewModel {
   ];
   static markdownIt = MarkdownIt({ html: true, linkify: true, typographer: true });
 
-  static getViewerList() {
+  static getViewerNameList() {
     return ViewModel.ViewerList.map((view) => view.name);
   }
   static getCurrentViewer() {
