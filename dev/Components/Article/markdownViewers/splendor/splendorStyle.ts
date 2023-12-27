@@ -165,7 +165,7 @@ export const splendorStyle = css`
 
   p,
   *:not(div):not(img):not(body):not(html):not(li):not(blockquote):not(p) {
-    margin: 1rem auto 1rem;
+    margin-left: 2rem;
     max-width: 36rem;
     padding: 0.25rem;
   }
@@ -179,9 +179,9 @@ export const splendorStyle = css`
   }
 
   blockquote p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-style: italic;
-    margin: 1rem auto 1rem;
+    margin: 2rem;
     max-width: 48rem;
   }
 
