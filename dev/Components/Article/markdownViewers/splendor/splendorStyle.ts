@@ -102,22 +102,22 @@ export const splendorStyle = css`
   h1,
   .splendor-h1 {
     margin-top: 0;
-    font-size: 3.998rem;
+    font-size: 2.998rem;
   }
 
   h2,
   .splendor-h2 {
-    font-size: 2.827rem;
+    font-size: 1.827rem;
   }
 
   h3,
   .splendor-h3 {
-    font-size: 1.999rem;
+    font-size: 1.499rem;
   }
 
   h4,
   .splendor-h4 {
-    font-size: 1.414rem;
+    font-size: 1.214rem;
   }
 
   h5,

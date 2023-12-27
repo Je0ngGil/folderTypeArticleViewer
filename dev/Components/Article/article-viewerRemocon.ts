@@ -54,26 +54,36 @@ export class ArticleViewerRemocon extends LitElement {
       color: var(--fifth-color);
       background-color: var(--third-color);
     }
+    .item.selected {
+      color: var(--fifth-color);
+      background-color: var(--first-color);
+      &::after {
+        content: ' ✔';
+      }
+    }
   `;
   @query('#toggle') toggle!: HTMLButtonElement;
   @query('#viewerList') viewerList!: HTMLDivElement;
 
   @property({ attribute: false }) viewerNameList: string[] = [];
+  @property({ attribute: false }) currentViewerName!: string;
   @state() viewerListHeight: number = 0;
 
   protected override firstUpdated(): void {
     const items = this.viewerNameList.map((name) => {
       const item = document.createElement('div');
       item.classList.add('item');
+      if (name === this.currentViewerName) {
+        item.classList.add('selected');
+      }
       item.innerText = name;
       return item;
     });
     this.viewerList.append(...items);
-  }
-  protected override updated(): void {
     this.viewerListHeight = this.viewerList.getBoundingClientRect().height;
     this.viewerList.style.top = `-${this.viewerListHeight + 2}px`;
   }
+
   open() {
     this.toggle.classList.toggle('active');
     this.toggle.classList.contains('active')
@@ -81,13 +91,24 @@ export class ArticleViewerRemocon extends LitElement {
       : (this.viewerList.style.top = `-${this.viewerListHeight + 2}px`);
   }
 
+  selectView(event: Event) {
+    if (!(event.target as HTMLDivElement).classList.contains('item')) return;
+
+    [...this.viewerList.children].forEach((element) => element.classList.remove('selected'));
+    const selectedViewer = event.target as HTMLDivElement;
+    selectedViewer.classList.add('selected');
+    const selectedViewName = selectedViewer.innerText;
+
+    const selectViewerEvent = new CustomEvent('selectedViewer', { detail: { selectedViewName } });
+    this.dispatchEvent(selectViewerEvent);
+  }
+
   override render() {
     return html`
       <div class="container">
         <button id="toggle" @click=${this.open}>Doc Thema</button>
-
         <div id="frame">
-          <div id="viewerList"></div>
+          <div id="viewerList" @click=${this.selectView}></div>
         </div>
       </div>
     `;

@@ -20,13 +20,28 @@ export class ArticleBody extends LitElement {
     args: () => [this.pathOfArticle],
   });
 
+  //selectedViewer
+  selectViewer(event: Event & { detail: { selectedViewName: string } }) {
+    const selectedViewName = event.detail.selectedViewName;
+    console.log(ViewModel.getCurrentViewer());
+    ViewModel.selectViewer(selectedViewName);
+
+    this.requestUpdate();
+  }
+
   override render() {
     return html`${this._requestArticle.render({
         initial: () => html`<loding-spinner />`,
         pending: () => html`<loding-spinner />`,
         complete: (result) => html`${ViewModel.renderMarkdownToHTML(result)}`,
         error: (error) => html`<p>Oops, something went wrong: ${error}</p>`,
-      })} <article-viewerremocon .viewerNameList=${ViewModel.getViewerNameList()}> </article-viewerremocon> `;
+      })}
+      <article-viewerremocon
+        .viewerNameList=${ViewModel.getViewerNameList()}
+        .currentViewerName="${ViewModel.getCurrentViewer().name}"
+        @selectedViewer=${this.selectViewer}
+      >
+      </article-viewerremocon> `;
   }
 }
 
