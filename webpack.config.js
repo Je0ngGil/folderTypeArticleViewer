@@ -16,7 +16,7 @@ export default () => {
     },
     output: {
       filename: '[name].js',
-      path: path.resolve(__dirname, './'),
+      path: path.resolve(__dirname, './dist'),
     },
     module: {
       rules: [
@@ -47,7 +47,7 @@ export default () => {
     ],
     devServer: {
       static: {
-        directory: './',
+        directory: 'dist/',
       },
       port: 3000,
     },
