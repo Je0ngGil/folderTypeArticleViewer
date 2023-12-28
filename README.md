@@ -1,49 +1,232 @@
-## 폴더형 개발 블로그
+---
+__Advertisement :)__
 
-폴더 형식의 개발 블로그입니다.
+- __[pica](https://nodeca.github.io/pica/demo/)__ - high quality and fast image
+resize in browser.
+- __[babelfish](https://github.com/nodeca/babelfish/)__ - developer friendly
+i18n with plurals support and easy syntax.
 
-흔히 사용하는 컴퓨터의 파일 시스템처럼 글을 폴더로 분류하고 저장합니다.
+You will like those projects!
+---
 
-필요한 자료를 쉽게 발견 및 접근할 수 있도록 구현하는 것이 목적입니다.
+# h1 Heading 8-)
 
-## 업데이트 사항
+## h2 Heading
 
-### [1.0.1 업데이트 사항](https://github.com/Je0ngGil/Je0ngGil.github.io/issues/13)
+### h3 Heading
 
-- ### 뷰 테마
+#### h4 Heading
 
-  기존에 docs폴더의 markdown 파일들을 웹에 렌더링하기 위해 아무런 CSS없이  
-  markdown -> html 변환하는 라이브러리만 사용했습니다.  
-  처음에는 단순히 HTML만 렌더링하고 읽을 수만 있으면 충분하다고 생각했지만,  
-  HTML 하나만으로는 글을 읽기에 단락 구분이 힘들어 문서의 가독성이 매우 떨어진다고 느꼈습니다.  
-  또한 업데이트 사항에 버그라고 생각했던 markdown 파일 안에 code블록들이 작동되지 않는다는  
-  사실 정상적으로 \<code> 태그로 변환되어 작동하고 있었고,  
-  CSS로 해당 태그를 꾸미지 않았기 때문에 아무런 구분없이 렌더링되고 있었다는 점을 알게됐습니다.
-  따라서 이번 업데이트에서
-  !!!!!!!!!!
+##### h5 Heading
 
-  적용한 테마는 github-markdown-css 이다.  
-  추후에 여러 테마를 추가해서 테마를 골라 문서를 볼 수 있도록 하면 좋을 것 같다.
+###### h6 Heading
 
-- ### \<img> 태그 이미지 적용이 안됨
+## Horizontal Rules
 
-  markdown에선 이미지를 첨부하는 방법은 두 가지다
+---
 
-  1. **\![이미지 설명]\(이미지 경로)**
-  2. **\<img src="이미지 경로">**
+---
 
-  기존 사용한 라이브러리는 첫 번째 방식을 파싱하지 못하고 이미지 태그를 단순 문자열로 변환했다.  
-  markdown -> html 변환 라이브러리를 변경해야 했는데,  
-  추후에 여러 뷰 테마를 추가 적용하기 위해서 markdown -> html 변환하는 방법은 각 테마마다 달라야 했다.  
-  이유는 테마마다 markdown -> html 변환시 tag에 사용하는 css선택자 이름이 제각각이기 때문이다.  
-  이번에 추가한 테마는 github markdown 스타일을 복제한 테마이다.  
-  [github-markdown-css](https://github.com/sindresorhus/github-markdown-css)
+---
 
-- ### 현재 선택된 문서를 표시
+## Typographic replacements
 
-  폴더를 열어 문서를 클릭했을 때 어느 문서에 들어와 있는지 표시하는 기능을 추가했다.
+Enable typographer option to see result.
 
-- ### 전
-  <img src="./public/README/1.0.0.png" width="100%">
-- ### 후
-  <img src="./public/README/1.0.1.png" width="100%">
+(c) (C) (r) (R) (tm) (TM) (p) (P) +-
+
+test.. test... test..... test?..... test!....
+
+!!!!!! ???? ,, -- ---
+
+"Smartypants, double quotes" and 'single quotes'
+
+## Emphasis
+
+**This is bold text**
+
+**This is bold text**
+
+_This is italic text_
+
+_This is italic text_
+
+~~Strikethrough~~
+
+## Blockquotes
+
+> Blockquotes can also be nested...
+>
+> > ...by using additional greater-than signs right next to each other...
+> >
+> > > ...or with spaces between arrows.
+
+## Lists
+
+Unordered
+
+- Create a list by starting a line with `+`, `-`, or `*`
+- Sub-lists are made by indenting 2 spaces:
+  - Marker character change forces new list start:
+    - Ac tristique libero volutpat at
+    * Facilisis in pretium nisl aliquet
+    - Nulla volutpat aliquam velit
+- Very easy!
+
+Ordered
+
+1. Lorem ipsum dolor sit amet
+2. Consectetur adipiscing elit
+3. Integer molestie lorem at massa
+
+4. You can use sequential numbers...
+5. ...or keep all the numbers as `1.`
+
+Start numbering with offset:
+
+57. foo
+1. bar
+
+## Code
+
+Inline `code`
+
+Indented code
+
+    // Some comments
+    line 1 of code
+    line 2 of code
+    line 3 of code
+
+Block code "fences"
+
+```
+Sample text here...
+```
+
+Syntax highlighting
+
+```js
+var foo = function (bar) {
+  return bar++;
+};
+
+console.log(foo(5));
+```
+
+## Tables
+
+| Option | Description                                                               |
+| ------ | ------------------------------------------------------------------------- |
+| data   | path to data files to supply the data that will be passed into templates. |
+| engine | engine to be used for processing templates. Handlebars is the default.    |
+| ext    | extension to be used for dest files.                                      |
+
+Right aligned columns
+
+| Option |                                                               Description |
+| -----: | ------------------------------------------------------------------------: |
+|   data | path to data files to supply the data that will be passed into templates. |
+| engine |    engine to be used for processing templates. Handlebars is the default. |
+|    ext |                                      extension to be used for dest files. |
+
+## Links
+
+[link text](http://dev.nodeca.com)
+
+[link with title](http://nodeca.github.io/pica/demo/ 'title text!')
+
+Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
+
+## Images
+
+![Minion](https://octodex.github.com/images/minion.png)
+![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg 'The Stormtroopocat')
+
+Like links, Images also have a footnote style syntax
+
+![Alt text][id]
+
+With a reference later in the document defining the URL location:
+
+[id]: https://octodex.github.com/images/dojocat.jpg 'The Dojocat'
+
+## Plugins
+
+The killer feature of `markdown-it` is very effective support of
+[syntax plugins](https://www.npmjs.org/browse/keyword/markdown-it-plugin).
+
+### [Emojies](https://github.com/markdown-it/markdown-it-emoji)
+
+> Classic markup: :wink: :cry: :laughing: :yum:
+>
+> Shortcuts (emoticons): :-) :-( 8-) ;)
+
+see [how to change output](https://github.com/markdown-it/markdown-it-emoji#change-output) with twemoji.
+
+### [Subscript](https://github.com/markdown-it/markdown-it-sub) / [Superscript](https://github.com/markdown-it/markdown-it-sup)
+
+- 19^th^
+- H~2~O
+
+### [\<ins>](https://github.com/markdown-it/markdown-it-ins)
+
+++Inserted text++
+
+### [\<mark>](https://github.com/markdown-it/markdown-it-mark)
+
+==Marked text==
+
+### [Footnotes](https://github.com/markdown-it/markdown-it-footnote)
+
+Footnote 1 link[^first].
+
+Footnote 2 link[^second].
+
+Inline footnote^[Text of inline footnote] definition.
+
+Duplicated footnote reference[^second].
+
+[^first]: Footnote **can have markup**
+
+    and multiple paragraphs.
+
+[^second]: Footnote text.
+
+### [Definition lists](https://github.com/markdown-it/markdown-it-deflist)
+
+Term 1
+
+: Definition 1
+with lazy continuation.
+
+Term 2 with _inline markup_
+
+: Definition 2
+
+        { some code, part of Definition 2 }
+
+    Third paragraph of definition 2.
+
+_Compact style:_
+
+Term 1
+~ Definition 1
+
+Term 2
+~ Definition 2a
+~ Definition 2b
+
+### [Abbreviations](https://github.com/markdown-it/markdown-it-abbr)
+
+This is HTML abbreviation example.
+
+It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
+
+\*[HTML]: Hyper Text Markup Language
+
+### [Custom containers](https://github.com/markdown-it/markdown-it-container)
+
+::: warning
+_here be dragons_
+:::
