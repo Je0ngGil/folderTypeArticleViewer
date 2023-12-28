@@ -2,7 +2,8 @@ import { LitElement, css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { Task } from '@lit/task';
 
-import './markdownViews/github/article-githubViewer';
+import { ViewModel } from '../../Models/Article/view.model';
+import './article-viewerRemocon';
 
 @customElement('article-body')
 export class ArticleBody extends LitElement {
@@ -19,13 +20,28 @@ export class ArticleBody extends LitElement {
     args: () => [this.pathOfArticle],
   });
 
+  //selectedViewer
+  selectViewer(event: Event & { detail: { selectedViewName: string } }) {
+    const selectedViewName = event.detail.selectedViewName;
+    console.log(ViewModel.getCurrentViewer());
+    ViewModel.selectViewer(selectedViewName);
+
+    this.requestUpdate();
+  }
+
   override render() {
     return html`${this._requestArticle.render({
-      initial: () => html`<loding-spinner />`,
-      pending: () => html`<loding-spinner />`,
-      complete: (result) => html`<article-GithubViewer .markdownText=${result}></article-GithubViewer> `,
-      error: (error) => html`<p>Oops, something went wrong: ${error}</p>`,
-    })}`;
+        initial: () => html`<loding-spinner />`,
+        pending: () => html`<loding-spinner />`,
+        complete: (result) => html`${ViewModel.renderMarkdownToHTML(result)}`,
+        error: (error) => html`<p>Oops, something went wrong: ${error}</p>`,
+      })}
+      <article-viewerremocon
+        .viewerNameList=${ViewModel.getViewerNameList()}
+        .currentViewerName="${ViewModel.getCurrentViewer().name}"
+        @selectedViewer=${this.selectViewer}
+      >
+      </article-viewerremocon> `;
   }
 }
 

@@ -4,6 +4,11 @@ import { customElement } from 'lit/decorators.js';
 @customElement('loding-spinner')
 export class LodingSpinner extends LitElement {
   static override styles = css`
+    :host {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+    }
     .spinner-container {
       display: flex;
       justify-content: center;
