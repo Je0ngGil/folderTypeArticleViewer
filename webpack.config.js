@@ -37,7 +37,7 @@ export default () => {
     ],
     devServer: {
       static: {
-        directory: 'dist/',
+        directory: './',
       },
       port: 3000,
     },
