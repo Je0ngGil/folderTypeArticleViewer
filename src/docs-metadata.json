@@ -1,0 +1,53 @@
+{
+  "name": "docs",
+  "type": "directory",
+  "children": [
+    {
+      "name": "CodingTest",
+      "type": "directory",
+      "children": [
+        {
+          "name": "Backjoon",
+          "type": "directory",
+          "children": []
+        },
+        {
+          "name": "Programmers",
+          "type": "directory",
+          "children": [
+            {
+              "name": "요격_시스템.md",
+              "type": "article"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DummyFolder",
+      "type": "directory",
+      "children": [
+        {
+          "name": "DummyFolder2",
+          "type": "directory",
+          "children": [
+            {
+              "name": "시.md",
+              "type": "article"
+            }
+          ]
+        },
+        {
+          "name": "DummyFolder3",
+          "type": "directory",
+          "children": [
+            {
+              "name": "시.md",
+              "type": "article"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
