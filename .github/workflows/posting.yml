@@ -3,7 +3,7 @@ name: posting
 on:
   push:
     paths:
-      - "./docs"
+      - "/docs"
 
 jobs:
   posting:
