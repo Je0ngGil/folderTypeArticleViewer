@@ -13,7 +13,7 @@ export class ArticleBody extends LitElement {
 
   _requestArticle = new Task(this, {
     task: async ([pathOfArticle]) => {
-      const response = await fetch(pathOfArticle);
+      const response = await fetch(`/${pathOfArticle}`);
       return await response.text();
     },
     autoRun: true,

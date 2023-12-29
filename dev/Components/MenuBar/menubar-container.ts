@@ -37,8 +37,7 @@ class MenuBarContainer extends LitElement {
 
   _getDataModel = new Task(this, {
     task: async () => {
-      // await new Promise((res) => setTimeout(res, 1000)); // 임사 로딩
-      const response = await fetch('docs-metadata.json');
+      const response = await fetch('/docs-metadata.json');
       const docsMetaDataJSON = await response.json();
       this.docsModelController = new DocsModelController(docsMetaDataJSON);
       this.InitDocsModel();
