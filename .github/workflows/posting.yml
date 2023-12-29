@@ -18,7 +18,7 @@ jobs:
         node-version: '18'
 
     - name: create docsMetadata
-      run: node "/script/createDocsMetadata.js"
+      run: node script/createDocsMetadata.js
 
     - name: add commit push 
       run: |
