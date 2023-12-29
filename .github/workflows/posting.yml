@@ -19,6 +19,11 @@ jobs:
 
     - name: create docsMetadata
       run: node script/createDocsMetadata.mjs
+    
+    - name: Set up Git
+      run: |
+        git config --local user.email "Je0ngGil@github.com"
+        git config --local user.name "Je0ngGil"
 
     - name: add commit push 
       run: |
