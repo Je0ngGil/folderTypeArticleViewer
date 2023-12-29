@@ -4,7 +4,7 @@ import CopyPlugin from 'copy-webpack-plugin';
 const __filename = new URL(import.meta.url).pathname;
 const __dirname = path.dirname(__filename);
 
-export default () => {
+export default (env) => {
   return {
     entry: {
       components: './dev/Components',
@@ -12,7 +12,7 @@ export default () => {
     },
     output: {
       filename: '[name].js',
-      path: path.resolve(__dirname, './dist'),
+      path: path.resolve(__dirname, `${env.path || './dist'}`),
     },
     module: {
       rules: [

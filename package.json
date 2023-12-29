@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "createDocsMetaData": "node script/createDocsMetadata.js",
-    "build": "webpack --mode production",
+    "build": "webpack --mode production --env path=$path",
     "start:dev": "webpack serve --mode development",
     "posting": "npm run createDocsMetaData && git add docs . && git commit -m $m && git push origin main"
   },
