@@ -1,0 +1,28 @@
+name: posting
+
+on:
+  push:
+    paths:
+      - "./docs"
+
+jobs:
+  posting:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Use Node.js 18
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: create docsMetadata
+      run: node "/script/createDocsMetadata.js"
+
+    - name: add commit push 
+      run: |
+        git add .
+        git commit -m "Update for $(date +'%Y-%m-%d')"
+        git push origin main
+      
